@@ -5,11 +5,7 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-use crate::types::{
-    Shared,
-    entities::{Application, User},
-    utils::Snowflake,
-};
+use crate::types::{Shared, entities::{Application, User}, utils::Snowflake, ApplicationType, ApplicationSKUObject};
 
 #[derive(Default, Debug, Deserialize, Serialize, Clone)]
 #[cfg_attr(feature = "sqlx", derive(sqlx::FromRow))]
@@ -54,4 +50,21 @@ pub enum IntegrationType {
     Youtube,
     Discord,
     GuildSubscription,
+}
+
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
+pub struct IntegrationApplication {
+    pub id: Snowflake,
+    pub name: String,
+    pub description: String,
+    pub icon: Option<String>,
+    pub cover_image: Option<String>,
+    pub splash: Option<String>,
+    pub application_type: Option<ApplicationType>,
+    pub primary_sku_id: Option<Snowflake>,
+    pub bot: Option<Shared<User>>, // TODO: should be a partial user
+    pub deeplink_uri: Option<String>,
+    #[serde(default)]
+    pub third_party_skus: Vec<ApplicationSKUObject>,
+    pub role_connections_verification_url: Option<String>,
 }
