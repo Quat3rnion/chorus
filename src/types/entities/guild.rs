@@ -59,7 +59,7 @@ pub struct Guild {
     #[cfg_attr(feature = "client", observe_vec)]
     #[serde(default)]
     pub emojis: Vec<Shared<Emoji>>,
-    pub explicit_content_filter: Option<ExplicitContentFilterLevel>,
+    pub explicit_content_filter: Option<GuildExplicitContentFilterLevel>,
     //#[cfg_attr(feature = "sqlx", sqlx(try_from = "String"))]
     #[serde(default)]
     pub features: GuildFeaturesList,
@@ -372,7 +372,7 @@ pub enum MessageNotificationLevel {
 #[repr(u8)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 /// See <https://discord-userdoccers.vercel.app/resources/guild#explicit-content-filter-level>
-pub enum ExplicitContentFilterLevel {
+pub enum GuildExplicitContentFilterLevel {
     #[default]
     Disabled = 0,
     MembersWithoutRoles = 1,

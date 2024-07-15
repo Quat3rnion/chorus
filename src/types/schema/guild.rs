@@ -9,7 +9,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::types::entities::Channel;
 use crate::types::types::guild_configuration::GuildFeatures;
-use crate::types::{Emoji, ExplicitContentFilterLevel, GenericSearchQueryWithLimit, MessageNotificationLevel, Snowflake, Sticker, StickerFormatType, SystemChannelFlags, VerificationLevel, WelcomeScreenChannel};
+use crate::types::{Emoji, GuildExplicitContentFilterLevel, GenericSearchQueryWithLimit, MessageNotificationLevel, Snowflake, Sticker, StickerFormatType, SystemChannelFlags, VerificationLevel, WelcomeScreenChannel};
 
 #[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
 #[serde(rename_all = "snake_case")]
@@ -63,7 +63,7 @@ pub struct GuildModifySchema {
     pub afk_timeout: Option<u16>,
     pub verification_level: Option<VerificationLevel>,
     pub default_message_notifications: Option<MessageNotificationLevel>,
-    pub explicit_content_filter: Option<ExplicitContentFilterLevel>,
+    pub explicit_content_filter: Option<GuildExplicitContentFilterLevel>,
     pub features: Option<Vec<GuildFeatures>>,
     pub system_channel_id: Option<Snowflake>,
     pub system_channel_flags: Option<SystemChannelFlags>,

@@ -4,7 +4,7 @@
 
 use serde::{Deserialize, Serialize};
 
-use crate::types::{ExplicitContentFilterLevel, MessageNotificationLevel};
+use crate::types::{GuildExplicitContentFilterLevel, MessageNotificationLevel};
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -13,7 +13,7 @@ pub struct GuildDefaults {
     pub max_video_channel_users: u16,
     pub afk_timeout: u16,
     pub default_message_notifications: MessageNotificationLevel,
-    pub explicit_content_filter: ExplicitContentFilterLevel,
+    pub explicit_content_filter: GuildExplicitContentFilterLevel,
 }
 
 impl Default for GuildDefaults {
@@ -23,7 +23,7 @@ impl Default for GuildDefaults {
             max_video_channel_users: 200,
             afk_timeout: 300,
             default_message_notifications: MessageNotificationLevel::OnlyMentions,
-            explicit_content_filter: ExplicitContentFilterLevel::Disabled,
+            explicit_content_filter: GuildExplicitContentFilterLevel::Disabled,
         }
     }
 }
