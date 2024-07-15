@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 pub use apierror::*;
+pub use application::*;
 pub use audit_log::*;
 pub use auth::*;
 pub use channel::*;
@@ -15,6 +16,7 @@ pub use invites::*;
 pub use voice_state::*;
 
 mod apierror;
+mod application;
 mod audit_log;
 mod auth;
 mod channel;
